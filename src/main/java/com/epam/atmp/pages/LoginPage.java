@@ -1,25 +1,29 @@
 package com.epam.atmp.pages;
 
+import com.epam.atmp.helpers.WaitHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import utils.WebDriverSingleton;
 
 public class LoginPage {
 
-    protected WebDriver driver;
+    protected WebDriver driver = WebDriverSingleton.getWebDriverInstance();
+    WaitHelper waitHelper = new WaitHelper();
 
-    By loginButton = By.name("Login");
+    WebElement loginButton = driver.findElement(By.xpath("//button[contains(@class, 'MuiButtonBase-root')]"));
+    WebElement loading = driver.findElement(By.xpath("//div[contains(@class, 'makeStyles-container-1')]"));
+
     By titleText =By.className("Val Repo");
 
     public LoginPage(){
-
-        this.driver = WebDriverSingleton.getWebDriverInstance();
 
     }
 
     public void clickLogin(){
 
-        driver.findElement(loginButton).click();
+        waitHelper.waitForEnabledToBeClickable(loginButton);
+        loginButton.click();
 
     }
 
@@ -30,7 +34,9 @@ public class LoginPage {
     }
 
     public void loginToApp(){
+        waitHelper.waitForInvisibility(loading);
 
+        waitHelper.waitForVisibility(loginButton);
         this.clickLogin();
     }
 
