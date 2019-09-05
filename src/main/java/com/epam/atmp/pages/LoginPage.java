@@ -1,7 +1,7 @@
 package com.epam.atmp.pages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.By
+import org.openqa.selenium.By;
 import utils.WebDriverSingleton;
 
 public class LoginPage {
@@ -9,7 +9,7 @@ public class LoginPage {
     protected WebDriver driver;
 
     By loginButton = By.name("Login");
-    By titleText =By.className("Login");
+    By titleText =By.className("Val Repo");
 
     public LoginPage(){
 
