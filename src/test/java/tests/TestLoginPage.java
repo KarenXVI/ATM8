@@ -40,7 +40,7 @@ public class TestLoginPage extends BaseTest {
 
     @Test(priority=0)
 
-    public void test_Home_Page_Appear_Correct() throws InterruptedException {
+    public void testHomePage() throws InterruptedException {
 
 //        Thread.sleep(5000);
 
