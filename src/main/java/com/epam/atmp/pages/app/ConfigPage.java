@@ -24,4 +24,7 @@ public class ConfigPage {
     }
 
 
+    public void checkPage() {
+
+    }
 }

@@ -1,4 +1,4 @@
-package com.epam.atmp.pages;
+package com.epam.atmp.pages.app;
 
 import com.epam.atmp.helpers.WaitHelper;
 import org.openqa.selenium.WebDriver;
@@ -29,13 +29,12 @@ public class LoginPage {
 
     public String getPageTitle(){
 
-        return    driver.findElement(titleText).getText();
+        return driver.findElement(titleText).getText();
 
     }
 
     public void loginToApp(){
         waitHelper.waitForInvisibility(loading);
-
         waitHelper.waitForVisibility(loginButton);
         this.clickLogin();
     }

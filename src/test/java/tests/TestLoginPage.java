@@ -1,14 +1,10 @@
 package tests;
 
 import com.epam.atmp.helpers.WaitHelper;
-import com.epam.atmp.pages.LoginPage;
+import com.epam.atmp.pages.app.LoginPage;
 import java.util.concurrent.TimeUnit;
 import com.epam.atmp.pages.app.ConfigPage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import setups.BaseTest;
@@ -42,14 +38,10 @@ public class TestLoginPage extends BaseTest {
 
     public void testHomePage() throws InterruptedException {
 
-//        Thread.sleep(5000);
-
         loginPage = new LoginPage();
+
         loginPage.loginToApp();
-//        String loginPageTitle = loginPage.getPageTitle();
-
-
-//        loginButton.click();
 
     }
+
 }
