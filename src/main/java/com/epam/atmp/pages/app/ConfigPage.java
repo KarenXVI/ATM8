@@ -16,7 +16,7 @@ public class ConfigPage extends BasePage<ConfigPage> {
 
     @FindBy(id = "select-server")
     WebElement selectServer;
-    @FindBy(xpath = "//button/span[text()='Submit']")
+    @FindBy(xpath = "//button[@class='MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary']")
     WebElement submitBtn;
     @FindBy(xpath = "//ul")
     WebElement serversContainer;
@@ -47,6 +47,11 @@ public class ConfigPage extends BasePage<ConfigPage> {
 
     public void clickSubmit(){
         waitForEnabledToBeClickable(submitBtn);
+        try {
+            wait(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         click(submitBtn);
     }
 
@@ -56,8 +61,8 @@ public class ConfigPage extends BasePage<ConfigPage> {
         waitForTextToBe(serversContainer, server);
         click(driver.findElement(By.xpath(serverTitle.replace("?", server))));
 
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-        js.executeScript("document.getElementsByClassName('MuiButton-containedPrimary')[0].style.zIndex=\"1000\"");
+//        JavascriptExecutor js = (JavascriptExecutor)driver;
+//        js.executeScript("document.getElementsByClassName('MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center MuiGrid-justify-xs-center')[0].style.visibility=\"hidden\"");
         clickSubmit();
     }
 

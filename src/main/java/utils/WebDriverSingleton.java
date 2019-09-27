@@ -35,7 +35,7 @@ public class WebDriverSingleton {
     public static void killDriver() {
         if (driver != null) {
             try {
-              // driver.quit();
+               driver.quit();
             } catch (Exception e) {
                 System.out.println("Cannot kill browser");
                 System.out.println(e);

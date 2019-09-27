@@ -2,21 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22ebfc74-5d55-4b61-b882-91673cedbfc2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/epam/atmp/config/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/app.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ATM8.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/atmp/helpers/WaitHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epam/atmp/helpers/WaitHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/atmp/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epam/atmp/pages/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/atmp/pages/app/ConfigPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epam/atmp/pages/app/ConfigPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/atmp/pages/app/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epam/atmp/pages/app/LoginPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utils/WebDriverSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/WebDriverSingleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/setups/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/setups/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/TestConfigPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/TestConfigPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/TestLoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/TestLoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/ATM8.kotlin_module" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -89,23 +78,6 @@
     </option>
   </component>
   <component name="RunManager" selected="TestNG.TestLoginPage.testLogingInSecondTime">
-    <configuration name="TestConfigPage" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="ATM8" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.TestConfigPage" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="TestConfigPage.testHomePage" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="ATM8" />
       <extension name="coverage">
@@ -160,6 +132,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestLoginPage.testLogingInFirstTime" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="atm8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.TestLoginPage" />
+      <option name="METHOD_NAME" value="testLogingInFirstTime" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestLoginPage.testLogingInSecondTime" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="atm8" />
       <extension name="coverage">
@@ -181,10 +171,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="TestNG.TestLoginPage.testLogingInSecondTime" />
+        <item itemvalue="TestNG.TestLoginPage.testLogingInFirstTime" />
         <item itemvalue="TestNG.TestLoginPage.testLoginFirstTime" />
         <item itemvalue="TestNG.TestLoginPage.testHomePage (1)" />
         <item itemvalue="TestNG.TestConfigPage.testHomePage" />
-        <item itemvalue="TestNG.TestConfigPage" />
       </list>
     </recent_temporary>
   </component>
@@ -231,50 +221,8 @@
           <line>33</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/tests/TestLoginPage.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/tests/TestLoginPage.java</url>
-          <line>40</line>
-          <properties class="tests.TestLoginPage" method="testLogingInSecondTime">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="debuggerHistoryManager">
-    <expressions id="evaluateExpression">
-      <expression>
-        <expression-string>driver.getCurrentUrl()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>driver.getCurrentUrl().toString()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>driver.findElement(By.xpath(&quot;//button[contains(@class, 'MuiButtonBase-root')]&quot;));</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>driver.findElement(By.xpath(&quot;//button[contains(@class, 'MuiButtonBase-root')]&quot;)).click();</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>driver.findElement(By.xpath(&quot;//button[contains(@class, 'MuiButtonBase-root')]&quot;))</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-    </expressions>
   </component>
   <component name="masterDetails">
     <states>
