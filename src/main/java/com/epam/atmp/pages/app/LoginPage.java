@@ -1,42 +1,66 @@
 package com.epam.atmp.pages.app;
 
-import com.epam.atmp.helpers.WaitHelper;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.By;
+import com.epam.atmp.pages.BasePage;
 import org.openqa.selenium.WebElement;
-import utils.WebDriverSingleton;
+import org.openqa.selenium.support.FindBy;
 
-public class LoginPage {
+import static com.epam.atmp.helpers.WaitHelper.*;
 
-    protected WebDriver driver = WebDriverSingleton.getWebDriverInstance();
-    WaitHelper waitHelper = new WaitHelper();
+public class LoginPage extends BasePage<LoginPage> {
 
-    WebElement loginButton = driver.findElement(By.xpath("//button[contains(@class, 'MuiButtonBase-root')]"));
-    WebElement loading = driver.findElement(By.xpath("//div[contains(@class, 'makeStyles-container-1')]"));
+    private final String CURRENT_PAGE_URL = "/";
 
-    By titleText =By.className("Val Repo");
+    @FindBy(className = "MuiButton-label")
+    WebElement loginButton;
+    @FindBy(xpath = "//*[contains(@src, 'BOSCH')]")
+    WebElement logo;
+    @FindBy(xpath = "//h1[text()='Val Repo']")
+    WebElement pageTitle;
+    @FindBy(xpath = "//h1")
+    WebElement title;
 
-    public LoginPage(){
 
+    @Override
+    protected String currentPageUrl() {
+        return CURRENT_PAGE_URL;
     }
 
     public void clickLogin(){
-
-        waitHelper.waitForEnabledToBeClickable(loginButton);
-        loginButton.click();
+       waitForEnabledToBeClickable(loginButton);
+       click(loginButton);
 
     }
+    public boolean logoIsPresent(){
+        try {
+            waitForVisibility(logo);
+            return true;
+        } catch (NullPointerException e){
+            return false;
+        }
+    }
 
+    public boolean verifyPageTitle(String text){
+        try {
+            waitForTextToBe(title, text);
+            return true;
+        } catch  (NullPointerException e){
+            return false;
+        }
+    }
     public String getPageTitle(){
-
-        return driver.findElement(titleText).getText();
-
+        return title.getText().trim();
     }
 
-    public void loginToApp(){
-        waitHelper.waitForInvisibility(loading);
-        waitHelper.waitForVisibility(loginButton);
-        this.clickLogin();
+    public boolean verifyLoginButtonText(String text){
+        try{
+            waitForEnabledToBeClickable(loginButton);
+            waitForTextToBe(loginButton, text);
+            return true;
+        } catch (NullPointerException e){
+            return false;
+        }
     }
+
+
 
 }
