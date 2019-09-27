@@ -1,47 +1,53 @@
 package tests;
 
-import com.epam.atmp.helpers.WaitHelper;
-import com.epam.atmp.pages.app.LoginPage;
-import java.util.concurrent.TimeUnit;
 import com.epam.atmp.pages.app.ConfigPage;
-import org.openqa.selenium.WebDriver;
+import com.epam.atmp.pages.app.LoginPage;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import setups.BaseTest;
-import utils.WebDriverSingleton;
+import static org.testng.Assert.*;
 
 public class TestLoginPage extends BaseTest {
 
-    WebDriver driver;
-    WaitHelper waitHelper = new WaitHelper();
-
-    LoginPage loginPage;
-
-    ConfigPage configPage;
-
-
-
+    private LoginPage loginPage;
+    private ConfigPage configPage;
 
     @BeforeTest
-
-    public void setup(){
-
-        driver = WebDriverSingleton.getWebDriverInstance();
-
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-        driver.get("http://localhost:3000");
-
-    }
-
-    @Test(priority=0)
-
-    public void testHomePage() throws InterruptedException {
-
+    public void setup() {
         loginPage = new LoginPage();
+        configPage = new ConfigPage();
+    }
 
-        loginPage.loginToApp();
+    @Test
+    public void testHomePage() throws InterruptedException {
+        loginPage.get();
+        assertTrue(loginPage.logoIsPresent());
+        assertTrue(loginPage.verifyPageTitle("Val Repo"));
+        assertTrue(loginPage.verifyLoginButtonText("Login"));
+    }
+
+    @Test
+    public void testLogingInFirstTime(){
+        loginPage.get();
+        loginPage.clickLogin();
+
+        configPage.isLoaded();
+        assertTrue(configPage.isSelectServerElementVisible());
+        assertTrue(configPage.isSubmitButtonVisible());
 
     }
 
+    @Test
+    public void testLogingInSecondTime(){
+        loginPage.get();
+        loginPage.clickLogin();
+
+        configPage.isLoaded();
+        configPage. selectServer("Test/Quality System");
+        configPage.clickSubmit();
+
+        loginPage.get();
+        loginPage.clickLogin();
+
+    }
 }
