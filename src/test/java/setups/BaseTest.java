@@ -7,18 +7,17 @@ import org.testng.annotations.AfterSuite;
 
 import java.util.concurrent.TimeUnit;
 
-public class BaseTest {
+import static utils.WebDriverSingleton.initDriver;
 
-    protected WebDriver driver;
+public class BaseTest {
 
     @BeforeSuite
     public void beforeSuite() {
-        driver = WebDriverSingleton.getWebDriverInstance();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        initDriver();
     }
 
     @AfterSuite(alwaysRun = true)
     public void afterSuite() {
-        WebDriverSingleton.kill();
+        WebDriverSingleton.killDriver();
     }
 }
