@@ -5,6 +5,8 @@ import com.epam.atmp.pages.app.LoginPage;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import setups.BaseTest;
+
+import static com.epam.atmp.pages.BasePage.isTextDisplayed;
 import static org.testng.Assert.*;
 
 public class TestLoginPage extends BaseTest {
@@ -27,7 +29,7 @@ public class TestLoginPage extends BaseTest {
     }
 
     @Test
-    public void testLogingInFirstTime(){
+    public void testLoggingInFirstTime(){
         loginPage.get();
         loginPage.clickLogin();
 
@@ -38,16 +40,19 @@ public class TestLoginPage extends BaseTest {
     }
 
     @Test
-    public void testLogingInSecondTime(){
+    public void testLoggingInSecondTime(){
         loginPage.get();
         loginPage.clickLogin();
 
         configPage.isLoaded();
+        assertTrue(!isTextDisplayed("Please select a use-case"));
         configPage. selectServer("Test/Quality System");
         configPage.clickSubmit();
+        assertTrue(isTextDisplayed("Please select a use-case"));
 
         loginPage.get();
         loginPage.clickLogin();
+        assertTrue(isTextDisplayed("Please select a use-case"));
 
     }
 }

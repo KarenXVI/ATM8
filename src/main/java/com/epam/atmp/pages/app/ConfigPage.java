@@ -20,6 +20,8 @@ public class ConfigPage extends BasePage<ConfigPage> {
     WebElement submitBtn;
     @FindBy(xpath = "//ul")
     WebElement serversContainer;
+    @FindBy(xpath = "//*[@class = 'MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button']")
+    WebElement waitElement;
 
 
     @Override
@@ -47,11 +49,6 @@ public class ConfigPage extends BasePage<ConfigPage> {
 
     public void clickSubmit(){
         waitForEnabledToBeClickable(submitBtn);
-        try {
-            wait(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         click(submitBtn);
     }
 
@@ -60,10 +57,8 @@ public class ConfigPage extends BasePage<ConfigPage> {
         click(selectServer);
         waitForTextToBe(serversContainer, server);
         click(driver.findElement(By.xpath(serverTitle.replace("?", server))));
+        clickWithJS(submitBtn);
 
-//        JavascriptExecutor js = (JavascriptExecutor)driver;
-//        js.executeScript("document.getElementsByClassName('MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center MuiGrid-justify-xs-center')[0].style.visibility=\"hidden\"");
-        clickSubmit();
     }
 
 

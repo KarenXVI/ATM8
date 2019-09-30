@@ -3,6 +3,7 @@ package com.epam.atmp.pages;
 
 import com.epam.atmp.config.Config;
 import org.jsoup.Connection;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,7 +16,7 @@ import static org.testng.Assert.assertEquals;
 import static utils.WebDriverSingleton.getWebDriverInstance;
 
 public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableComponent<T> {
-    protected WebDriver driver = getWebDriverInstance();
+    protected static WebDriver driver = getWebDriverInstance();
     private final String BASE_URL = Config.get("/app.properties", "baseUrl");
 
 
@@ -42,6 +43,11 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
 
     public void click(WebElement element) {
         element.click();
+    }
+
+    public void clickWithJS(WebElement element){
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();", element );
     }
 
     public String getElementText(WebElement element) {
@@ -76,6 +82,15 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
         dropdown.selectByVisibleText(option);
     }
 
+    public static boolean isTextDisplayed(String text){
+        try {
+            return driver.findElement(By.xpath("//*[text() = '" + text + "']")).isDisplayed();
+        }catch ( Exception e){
+            System.out.println(e);
+            return false;
+        }
+
+    }
 
 
 }
