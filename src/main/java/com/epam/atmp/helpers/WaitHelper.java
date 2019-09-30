@@ -18,7 +18,7 @@ public class WaitHelper {
     public static void waitForEnabledToBeClickable(WebElement element) {
         try {
             wait.until(ExpectedConditions.elementToBeClickable(element));
-        } catch (WebDriverException e){
+        } catch (WebDriverException e) {
             throw new Error("Element was not clickable " + element.toString());
         }
     }
@@ -26,7 +26,7 @@ public class WaitHelper {
     public static void isTextVisible(WebElement element, String text) {
         try {
             wait.until(ExpectedConditions.attributeContains(element, "value", text));
-        } catch (WebDriverException e){
+        } catch (WebDriverException e) {
             throw new Error("Text was not visible on the element " + element.toString());
         }
     }
@@ -34,7 +34,7 @@ public class WaitHelper {
     public static void waitForVisibility(WebElement element) {
         try {
             wait.until(ExpectedConditions.visibilityOf(element));
-        } catch (WebDriverException e){
+        } catch (WebDriverException e) {
             throw new Error("Element was not visible " + element.toString());
         }
     }
@@ -42,7 +42,7 @@ public class WaitHelper {
     public static void waitForInvisibility(WebElement element) {
         try {
             wait.until(ExpectedConditions.invisibilityOf(element));
-        } catch (WebDriverException e){
+        } catch (WebDriverException e) {
             throw new Error("Element was visible " + element.toString());
         }
     }
@@ -50,10 +50,24 @@ public class WaitHelper {
     public static void waitForTextToBe(WebElement element, String expectedText) {
         try {
             wait.until(ExpectedConditions.textToBePresentInElement(element, expectedText));
-        } catch(WebDriverException e){
+        } catch (WebDriverException e) {
             throw new Error("Text was not visible " + element.toString());
         }
     }
+
+    public static boolean waitForJS() {
+        if(((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete")) {
+            return true;
+        } else return false;
+    }
+
+    public static boolean  waitForJQ() {
+        if((Boolean)((JavascriptExecutor)driver).executeScript("return jQuery.active == 0")){
+            return true;
+        } else return false;
+    }
+
+
 
 
 }
