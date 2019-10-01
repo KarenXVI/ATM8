@@ -15,6 +15,11 @@ public class WaitHelper {
     private static WebDriver driver = WebDriverSingleton.getWebDriverInstance();
     private static WebDriverWait wait = new WebDriverWait(driver, SHORT_TIMEOUT);
 
+    void waitForLoad(WebDriver driver) {
+        new WebDriverWait(driver, 10).until((ExpectedCondition<Boolean>) wd ->
+                ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete"));
+    }
+
     public static void waitForEnabledToBeClickable(WebElement element) {
         try {
             wait.until(ExpectedConditions.elementToBeClickable(element));
@@ -66,8 +71,5 @@ public class WaitHelper {
             return true;
         } else return false;
     }
-
-
-
 
 }
